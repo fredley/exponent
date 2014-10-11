@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="normalize.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="modernizr.min.js"></script>
+        <script src="jquery.min.js"></script>
+        <script src="jsrender.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div id='score'>Score: <span id='score-disp'>0</span></div>
+        <div id='wrapper'>
+            <div id='equation'>
+                <div id='lhs' class='eq'>t' = t</div>
+                <div class='eq' id='coeff-0'>+
+                     <span id='coeff-0-disp' class='coeff' data-value=0>1</span>
+                    <div class='popout' id='popout-0-disp'>10</div>
+                </div>
+                <div class='eq spacer' id='rhs'></div>
+                <div class='floatstop'></div>
+            </div>
+        </div>
+        <div id='achievements'>
+            <h1>Achievements</h1>
+            <div id='ach-count' class='row'></div>
+            <div id='ach-upgrade' class='row'></div>
+        </div>
+        <button id='reset'>Reset</button>
+        <script id="ach_upgrade_tmpl" type="text/x-jsrender">
+            <div class='achievement' id='upgrade-{^{:count}}'>
+                {^{:roman}}
+                <div class='tip'>Bought {^{:comma}} upgrades</div>
+            </div>
+        </script>
+        <script id="ach_count_tmpl" type="text/x-jsrender">
+            <div class='achievement'>
+                {^{:roman}}
+                <div class='tip'>Got a score over {^{:comma}}</div>
+            </div>
+        </script>
+        <script id="coeff_tmpl" type="text/x-jsrender">
+            <div class='eq rhs' id='coeff-{^{:x}}'>
+                + <span id='coeff-{^{:x}}-disp' class='coeff' data-value={^{:x}}>0</span>&times;10<sup>{^{:x}}</sup>
+                <div class='popout' id='popout-{^{:x}}-disp'></div>
+            </div>
+        </script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
