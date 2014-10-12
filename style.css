@@ -9,6 +9,14 @@ body{
   color:#624319;
   background: #FAF8F6;
 }
+a{
+  color:rgba(255, 63, 0, 1);
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover{
+  color:rgba(255, 171, 0, 1);
+}
 #wrapper{
   margin-top: 1em;
   width: 100%;
@@ -133,4 +141,18 @@ h1{
   border: 1px solid #937752;
   background: #937752;
   color: #EFE3C0;
+}
+#footer{
+    font-size:0.5em;
+    position: fixed;
+    bottom: 0.5em;
+    left: 0.5em;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s; /* Safari */
+}
+#footer:hover{
+    opacity: 1.0;
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s; /* Safari */
 }
