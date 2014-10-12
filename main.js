@@ -76,6 +76,7 @@ var exponent = {
                             function(){$(this).find('.tip').hide();});
   },
   reset: function(){
+    if(!confirm("Are you sure you want to reset?")) return;
     this.score=0;
     this.coeffs=[1];
     $('#ach-upgrade, #ach-count').html('');
