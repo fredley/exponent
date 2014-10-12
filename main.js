@@ -14,13 +14,12 @@ var exponent = {
     window.timer = setInterval(function(){exponent.tick(true)},700);
     $('#reset').on('click',function(){exponent.reset();});
   },
+  increment: function(){
+    return parseInt(this.coeffs.slice().reverse().join(''));
+  },
   tick: function(updateScore){
-    var exp = expo(this.score);
-    if(!$('#coeff-' + exp).length){
-      this.add_coeff(exp,true);
-    }
+    if(updateScore) this.score += this.increment();
     for(var i=0;i<this.coeffs.length;i++){
-      if(updateScore) this.score += this.coeffs[i] * Math.pow(10,i);
       $('#coeff-' + i + '-disp').html(this.coeffs[i]);
       $('#popout-' + i + '-disp').html(comma(this.price(i)));
       if(this.price(i) > this.score){
@@ -29,7 +28,12 @@ var exponent = {
         $('#popout-' + i + '-disp').removeClass('disabled');
       }
     }
+    var exp = expo(this.score);
+    if(!$('#coeff-' + exp).length){
+      this.add_coeff(exp,true);
+    }
     $('#score-disp').html(comma(this.score));
+    $('#increment-disp').html(comma(this.increment()));
     localStorage["exponent"] = JSON.stringify({score:this.score,coeffs:this.coeffs});
   },
   add: function(i){
